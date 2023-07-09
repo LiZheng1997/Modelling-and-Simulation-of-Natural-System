@@ -1,0 +1,23 @@
+function initialise_results(Foragers,NaiveBees)
+
+ global  IT_STATS ENV_DATA PARAM
+    
+ 
+ IT_STATS=struct('nOfForager',zeros(1,PARAM.tot_it),...            %no. births per iteration
+                'nOfNaive',zeros(1,PARAM.tot_it),...
+                'totFood',zeros(1,PARAM.tot_it),...
+                'nFindFood',zeros(1,PARAM.tot_it),...
+                'source1Content',zeros(1,PARAM.tot_it),...
+                'source2Content',zeros(1,PARAM.tot_it),...
+                'propSuccessCollect',[],...
+            'findS1', zeros(1,PARAM.tot_it),...
+            'findS2', zeros(1,PARAM.tot_it));               %remaining vegetation level
+ IT_STATS.nOfForager(1) = length(Foragers);  % the number of foragers in each iteration 
+ IT_STATS.nOfNaive(1) = length(NaiveBees); % the number of naive bees in each iteration
+ IT_STATS.totFood(1) = ENV_DATA.source1.content + ENV_DATA.source2.content; % total food content in each iteration
+ IT_STATS.source1Content(1) = ENV_DATA.source1.content; % source1 food content in each iteration
+ IT_STATS.source2Content(1) = ENV_DATA.source2.content; % source2 food content in each iteration
+ IT_STATS.findS1(1) = 0;
+ IT_STATS.findS2(2) = 0;
+ 
+end
